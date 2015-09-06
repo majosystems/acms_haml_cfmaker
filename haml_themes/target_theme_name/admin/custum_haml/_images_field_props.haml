@@ -1,0 +1,3 @@
+- # coding: utf-8
+- data[:props].each do |k,v|
+  %input{ type: "hidden", name: "@#{data[:group_name]}[]", value: "#{data[:name]}@#{k}" }

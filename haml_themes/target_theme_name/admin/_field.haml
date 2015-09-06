@@ -1,0 +1,3 @@
+- # coding: utf-8
+- path = path + "custum_haml/"
+= Haml::Engine.new(File.read(path + "_" + data[:type].to_s + ".haml")).render(Object.new, path: path, data: data)

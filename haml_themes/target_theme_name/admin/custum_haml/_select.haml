@@ -1,0 +1,9 @@
+- # coding: utf-8
+%tr
+  %th #{data[:title]}
+  %td
+    %select{ name: "#{data[:name]}" }
+      %option{ value: "" }
+      - data[:options].each do |option|
+        <option value="#{option[:value]}" {selec:selected##{option[:value]}}>#{option[:label]}</option>
+    %input{ type: "hidden", name: "field[]", value: "#{data[:name]}" }

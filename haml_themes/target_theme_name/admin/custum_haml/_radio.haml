@@ -1,0 +1,10 @@
+- # coding: utf-8
+%tr
+  %th #{data[:title]}
+  %td
+    - data[:options].each do |option|
+      %label.acms-admin-form-radio
+        <input type="radio" name="#{data[:name]}" value="#{option[:value]}" {#{data[:name]}:checked##{option[:value]}} />
+        %i.acms-admin-ico-radio
+        #{option[:label]}
+    %input{ type: "hidden", name: "field[]", value: "#{data[:name]}" }

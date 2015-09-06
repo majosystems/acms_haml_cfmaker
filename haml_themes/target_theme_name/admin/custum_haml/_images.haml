@@ -1,0 +1,51 @@
+- # coding: utf-8
+%table.js-fieldgroup-sortable
+  %thead
+  %tr
+    %th #{data[:title]}
+  <!-- BEGIN #{data[:group_name]}:loop -->
+  %tr.sortable-item
+    %td.item-handle
+      %i.acms-icon-sort
+    %td
+      <!-- BEGIN #{data[:name]}:veil -->
+      %img{ src: "%{ARCHIVES_DIR}{#{data[:name]}@path}" }
+      <!-- END #{data[:name]}:veil -->
+      %label.acms-form-checkbox
+        %input{ type: "checkbox", name: "#{data[:name]}@edit[{i}]", value: "delete" }
+        %i.acms-ico-checkbox 削除
+      %input{ type: "hidden", name: "#{data[:name]}@old[{i}]", value: "{#{data[:name]}@path}" }
+      %input{ type: "file", name: "#{data[:name]}[{i}]" }
+      - if data[:alt]
+        代替テキスト:
+        %input{ type: "text", name: "#{data[:name]}@alt[{i}]", value: "{#{data[:name]}@alt}",size: "40" }
+      = Haml::Engine.new(File.read(path + "_images_props.haml")).render(Object.new, path: path, data: data)
+    %td
+      %input.item-delete.acms-btn-admin.acms-btn-admin-danger{ type: "button", value: "削除"}
+  <!-- END #{data[:group_name]}:loop -->
+  %tr.sortable-item.item-template
+    %td.item-handle
+      %i.acms-icon-sort
+    %td
+      %input{ type: "file", name: "#{data[:name]}[]" }
+      - if data[:alt]
+        代替テキスト:
+        %input{ type: "text", name: "#{data[:name]}@alt[{i}]", value: "",size: "40" }
+      = Haml::Engine.new(File.read(path + "_images_props_new.haml")).render(Object.new, path: path, data: data)
+    %td
+      %input.acms-btn-admin.item-delete.acms-btn-admin-danger{ type: "button", value: "削除" }
+  %tfoot
+    %tr
+      %td{ colspan: "3" }
+        %input.item-insert.acms-btn-admin{ type: "button", value: "追加" }
+%input{ type: "hidden", name: "#{data[:name]}:extension", value: "image" }
+%input{ type: "hidden", name: "@#{data[:group_name]}[]", value: "#{data[:name]}@path" }
+%input{ type: "hidden", name: "@#{data[:group_name]}[]", value: "#{data[:name]}@x" }
+%input{ type: "hidden", name: "@#{data[:group_name]}[]", value: "#{data[:name]}@y" }
+%input{ type: "hidden", name: "@#{data[:group_name]}[]", value: "#{data[:name]}@edit" }
+%input{ type: "hidden", name: "@#{data[:group_name]}[]", value: "#{data[:name]}@old" }
+- if data[:alt]
+  %input{ type: "hidden", name: "@#{data[:group_name]}[]", value: "#{data[:name]}@alt" }
+= Haml::Engine.new(File.read(path + "_images_field_props.haml")).render(Object.new, path: path, data: data)
+%input{ type: "hidden", name: "field[]", value: "#{data[:name]}" }
+%input{ type: "hidden", name: "field[]", value: "@#{data[:group_name]}" }

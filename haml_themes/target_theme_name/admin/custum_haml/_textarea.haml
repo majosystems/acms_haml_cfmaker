@@ -1,0 +1,6 @@
+- # coding: utf-8
+%tr
+  %th #{data[:title]}
+  %td
+    %textarea{ name: "#{data[:name]}" } #{data[:value]}
+    %input{ type: "hidden", name: "field[]", value: "#{data[:name]}" }
