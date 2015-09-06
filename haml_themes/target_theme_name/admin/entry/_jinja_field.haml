@@ -1,90 +1,49 @@
 - # coding: utf-8
 :ruby
-  base_props = {
-    width: 1200,
-    tinyWidth: 200,
-    squareWidth: 500,
-  }
   custum_fields = [
     {
       type: :select,
-      title: "せんたく",
-      name: "selec",
+      title: "セレクトボックス",
+      name: "selec_name",
       options: [
-        { label: "あ" , value: 'aaa' },
-        { label: "位" , value: 'iii' },
+        { label: "選択肢１" , value: '1' },
+        { label: "選択肢２" , value: '2' },
       ]
     },
     {
       type: :radio,
-      title: "らじお",
-      name: "raji",
+      title: "ラジオボタン",
+      name: "radio_name",
       options: [
-        { label: "ええ" , value: 'ee' },
-        { label: "おお" , value: 'oo' },
+        { label: "選択肢１" , value: '1' },
+        { label: "選択肢２" , value: '2' },
       ]
     },
     {
       type: :check_box,
-      title: "ちぇっく",
-      name: "ch",
+      title: "チェックボックス",
+      name: "check_box_name",
       options: [
-        { label: "ca" , value: 'caca' },
-        { label: "cb" , value: 'cbcb' },
+        { label: "選択肢１" , value: '1' },
+        { label: "選択肢２" , value: '2' },
       ]
     },
     {
       type: :textarea,
-      title: "えりあ",
-      name: "area"
+      title: "テキストエリア",
+      name: "textarea_name"
     },
     {
       type: :images,
-      title: "鳥居",
-      group_name: "torii_photos",
-      name: "torii_photo",
+      title: "画像グループ",
+      group_name: "photos",
+      name: "photo",
       alt: true,
-      props: base_props,
-    },
-    {
-      type: :images,
-      title: "狛犬（左）",
-      group_name: "komainu_left_photos",
-      name: "komainu_left_photo",
-      alt: true,
-      props: base_props,
-    },
-    {
-      type: :images,
-      title: "狛犬（右）",
-      group_name: "komainu_right_photos",
-      name: "komainu_right_photo",
-      alt: true,
-      props: base_props,
-    },
-    {
-      type: :images,
-      title: "灯篭（左）",
-      group_name: "tourou_left_photos",
-      name: "tourou_left_photo",
-      alt: true,
-      props: base_props,
-    },
-    {
-      type: :images,
-      title: "灯篭（右）",
-      group_name: "tourou_right_photos",
-      name: "tourou_right_photo",
-      alt: true,
-      props: base_props,
-    },
-    {
-      type: :images,
-      title: "その他",
-      group_name: "other_photos",
-      name: "other_photo",
-      alt: true,
-      props: base_props,
+      props: {
+        width: 1200,
+        tinyWidth: 200,
+        squareWidth: 500
+      }
     }
   ]
 - custum_fields.each do |field_data|
